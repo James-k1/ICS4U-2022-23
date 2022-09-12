@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Affordable and professional web design but i have no idea what im doing and i have 0 experience with css adn html XD">
     <meta name="keywords" content="web design, affordable web design, professional web design, guy who does not know what hes doing">
@@ -14,12 +14,12 @@
         <div class="container">
             <div id="branding">
                 <h1>
-                    Acme Web Design
+                   <span class="highlight">Acme</span> Web Design
                 </h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="highlight">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                 </ul>
@@ -30,6 +30,7 @@
     </header>
     <section id="showcase">
         <div class="container">
+            
             <h1>Affordable Professional Web Design</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quod quas neque architecto quibusdam.</p>
         </div>
@@ -40,10 +41,34 @@
             <h1>Subscribe To Our Newsletter</h1>
             <form>
                 <input type="email" placeholder="Enter Email...">
-                <input type="submit" class="button-1">
+                <button type="sumbit" class="button-1">Subscribe</button>
             </form> 
         </div>
     </section>
+
+    <section id="boxes">
+        <div class="container">
+            <div class="box">
+                <img src="img/HTML5-logo.png" alt="HTML5 Logo" >
+                <h3>HTML5 Markup</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, suscipit nostrum, quaerat tempora doloribus reiciendis deserunt nisi blanditiis a facere ipsa inventore ut sit, vitae voluptatum perspiciatis unde. Perspiciatis, minima!</p>
+            </div>
+            <div class="box">
+                <img src="img/CSS3-logo.png" alt="CSS3 Logo" >
+                <h3>CSS3 Styling</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, suscipit nostrum, quaerat tempora doloribus reiciendis deserunt nisi blanditiis a facere ipsa inventore ut sit, vitae voluptatum perspiciatis unde. Perspiciatis, minima!</p>
+            </div>
+            <div class="box">
+                <img src="img/GRAPHDESIGN-logo.png" alt="Graph Design Logo"  >
+
+                <h3>Graph Design</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, suscipit nostrum, quaerat tempora doloribus reiciendis deserunt nisi blanditiis a facere ipsa inventore ut sit, vitae voluptatum perspiciatis unde. Perspiciatis, minima!</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Acme Web Design, Copyright &copy;2022</p>
+    </footer>
     
 </body>
 </html>
