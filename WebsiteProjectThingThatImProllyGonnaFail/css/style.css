@@ -1,76 +1,123 @@
+/* Global Styles */
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #000;
     margin: 0;
     padding: 0;
-    /* border-radius: 100px; */
-
     background-color: #333;
-    /* background-image: url("../img/genericBackground.jpg");
-    
-    background-repeat: no-repeat;
-
-    background-size: cover; */
-    
-    
 }
 
-/*
-section {
-    vertical-align: center;
-    text-align: center;
-    padding: 100px;
-} */
-section {
+/* Styles default button*/
+button {
+    height: 64.1px;
+    width: 100px;
+    margin-left: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 19px;
+    transition: 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+/* Adds hover animation */
+button:hover {
+
+    border: #fff solid 3px;
+}
+
+/* nav bar styles */
+
+/* makes buttons one dimensional */
+header nav ul {
+    list-style: none;
+    display: flex;
     padding: 0;
     margin: 0;
-    
+    align-items: center;
 }
+
+/* styles the text */
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* spaces the button in the nav */
+header nav li {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+/* styles nav bar */
+header nav {
+    background-color: #333;
+    text-align: center;
+
+    margin: 10px;
+
+}
+
+/* styles logo */
+header nav img {
+    width: 10%;
+
+
+}
+
+header a {
+    padding: 10px;
+    transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* adds nav animation */
+header a:hover:not(#current) {
+    box-shadow: inset 200px 0 0 0 #fff;
+    color: #000;
+}
+
+/* highlights the current page button */
+#current {
+    color: #fff;
+    background-color: #000;
+}
+
+/* sets title section dimensions an color */
 #title {
-    
     color: #fff;
     font-size: 50px;
     height: 750px;
-    
-    
-    
 }
+
+/* makes the text centered */
 #title .container {
     margin-left: 10px;
-    
-    /* background-color: #000; */
-    
 
     text-align: center;
-    
+
     position: relative;
     top: 250px;
-    /* margin-top: 100px; */
-    
-    
-    
-}
-#title .container h1{
-    /* margin-left: 10px; */
-    /* justify-content:left; */
-    
-    background-color: #000;
-    /* border: solid #fff 3px;  */
 
+}
+
+/* adds black border an spacing around the title text */
+#title .container h1 {
+
+    background-color: #000;
     margin-right: 50px;
-    margin-left: 50px; 
+    margin-left: 50px;
     margin-top: 0;
     margin-bottom: 0;
 
+    padding: 20px;
 
-    padding: 20px; 
-
-    
 }
 
 
-
-#title .bg-img{
+/* sets the background img */
+#title .bg-img,
+.bg-community-img {
     position: absolute;
     background-image: url("../img/genericBackground.jpg");
     width: 100%;
@@ -82,57 +129,15 @@ section {
 
 
 }
+/* switches the background image for the community impact page */
+#title .bg-community-img{
 
-
-
-
-
-
-
-nav ul{
-    list-style: none;
-    display:flex;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    align-items: center;
-    font-size: 20px;
-}
-nav li {
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    align-items: center;
-    
-}
-nav {
-    background-color: #333;
-    text-align: center;
-    
-    margin: 10px;
-
-   
-   
-
-}
-nav img {
-    width: 10%;
-}
-
-button {
+    background-image: url("../img/communityImpctImg.jpg");
 
 }
 
-
-#current{
-    color: #000;
-}
-
-#section-a .a-name{
+/* sets the style for the title of section-a */
+#section-a .a-name {
 
     background-color: #000;
     padding: 10px;
@@ -141,38 +146,16 @@ button {
     text-align: center;
 
 }
-#section-a ul {
-    /* display: flex; */
-    /* display: grid;
-    grid-template-columns: repeat(3,1fr); */
-    
-    /* align-items: center; */
-    padding: 0;
-    list-style: none;
-    /* display: flex; */
-    /* justify-content: left;
 
-    align-items: center; */
-    width: 90%;
-    /* flex-wrap: wrap; */
-    /* margin-left: auto; */
-    /* margin-left:250px; */
-    
-    /* justify-content: center; */
-    /* display: grid; */
-    /* float: left; */
-    /* grid-template-columns: repeat(auto-fit,  minmax(50px, max-content)) ; */
-    /* grid-template-columns: revert; */
-    /* grid-auto-flow: dense; */
-    
-    
-}
+/* styles default elements in section and adds background */
 #section-a {
     margin-top: 50px;
     margin-bottom: 50px;
-    background-image: url('../img/repeatableImg.jpg');
+
+    background-image: url('../img/repeatableImg2.jpg');
+
     border: solid 3px #000;
-    border-radius: 5px;
+
     padding: 5px;
     width: 80%;
     margin-left: auto;
@@ -180,40 +163,27 @@ button {
     text-align: center;
     line-height: 2em;
     color: #fff;
- 
-
 }
 
-/* .box {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-} */
+/* styles header */
+#section-a h1 {
 
-#section-a h1{
-    
-    /* top: 10px; */
     margin: 10px;
-    
+
     padding: 10px;
-    /* margin-top: 30px; */
+
     background-color: #000;
-   
-    
 }
-#section-a div{
+/* multiple items per row */
+#section-a div {
     display: inline;
     margin: 10px;
 
 }
-.emptySpace {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
 
+/* sets space between element */
 #section-a .contentWrap {
     display: inline-block;
-    /* border-radius: 5px; */
     width: fit-content;
     margin-left: 10px;
     margin-right: 10px;
@@ -221,234 +191,615 @@ button {
     padding: 5px;
     background-color: #000;
 }
-/* #section-a #two{
-    z-index: 4;
-    
-}
-#section-a #three{
-    z-index: 3;
-    
-}
-#section-a #four{
-    z-index: 2;
-    
-}
-#section-a #five{
-    z-index: 1;
-    
-} */
-/* #section-a :nth-child(1) {
-    z-index: 5;
-}
-#section-a :nth-child(2) {
-    z-index: 4;
-}
-#section-a :nth-child(3) {
-    z-index: 3;
-}
-#section-a :nth-child(4) {
-    z-index: 2;
-}
-#section-a :nth-child(5) {
-    z-index: 1;
-} */
-/* #section-a li {
-    display: flex;
-} */
 
-
-
-
-
-/* .content-wrap {
+/* sets defaults elements in section b */
+#section-b {
+    color: #fff;
+    font-size: large;
+    width: 81%;
     margin-left: auto;
     margin-right: auto;
-
-    background-color: #fff;
-
-    height: 400px;
-    width: 350px;
-    
+    margin-bottom: 100px;
+}
+/* make history header and text inline */
+#section-b .history {
+    display: flex;
+    line-height: 1.5em;
+}
+/* styles and aligns history tag vertically  and adds a border on the right*/
+#section-b .item1 {
+    padding: 60px;
+    font-size: 50px;
+    display: flex;
+    border-right: #fff solid 3px;
     align-items: center;
-    
-    text-align:center;
-    
-    border: #000 solid 3px;
-    border-radius: -100px;
-    font-size: 13px;
-   
+    justify-content: center;
 
-
-    
-    
-
-} */
-
-
-/* .content-wrap img{
-    height: 60%;
-
-} */
-/* .content-wrap :nth-child(4) img{
-    width: 10%;
-
-} */
-
-/* #section-a .content-wrap:hover {
-    position: relative;
-    z-index: 1000;
-    overflow:visible;
-    padding-left: 10px;
-    padding-right: 10px;
-  
-    
-    font-size: 80%;
-} */
-
-#section-b{
-    
 }
 
+/* aligns histoy text */
+#section-b .item2 {
+    padding-left: 60px;
+    padding-right: 60px;
+}
 
-
+/* sets default style for the footer elements */
 #footer {
-
     margin-top: 10px;
     color: #fff;
     font-weight: 300;
     letter-spacing: 3px;
-
+    border: solid 3px #000;
     line-height: 2em;
     background-color: rgb(101, 100, 100);
     font-size: large;
     text-align: center;
 
 }
+/* formats the grid areas */
 #footer .gridCont {
-    /* margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 30px;
-    margin-right: 30px; */
-    /* margin: 0;
-    padding: 0; */
     display: grid;
-    grid-template-areas: 
-    'about social'
-    'boring boring';
 
-    /* display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-    grid-template-columns: repeat(4,1fr); */
-    
+
+    grid-template-areas:
+        'about social'
+        'boring boring';
 }
-
+/* sets dimension and spacing of the social media images*/
 #footer img {
     width: 60px;
     margin: 10px;
 }
 
-#footer h1{
+#footer h1 {
     font-size: 30px;
 }
-#footer h2{
+
+#footer h2 {
     font-size: 15px;
 }
-.item1 {
+/* 2 by 2 grid for the social media icons */
+#footer .item1 {
+
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-   
+    grid-template-columns: repeat(2, 1fr);
+
     align-items: center;
-    align-self: center;
-    align-content: center;
-    border: #000 solid 3px;
+
     grid-area: social;
 
-    height:100%;
+    height: 100%;
     padding-left: 30px;
     padding-right: 30px;
-    
-    
-    /* padding-bottom: auto; */
-    /* height: 100%; */
-
 }
-
-
-.item2 {
-    align-self: center;
+/* styles about us */
+#footer .item2 {
     padding-left: 100px;
     padding-right: 100px;
-    border: #000 solid 3px;
+    border-right: #000 solid 3px;
     grid-area: about;
     font-size: small;
     height: 100%;
     width: fit-content;
-    
-}
-.item3 {
-    display: inline;
 
-    border: #000 solid 3px;
+}
+/* styles the company information */
+#footer .item3 {
+    display: inline-block;
+    border-top: #000 solid 3px;
     grid-area: boring;
 }
-.item3 h2 {
+
+#footer .item3 h2 {
     display: inline;
     margin: 10px;
 }
-.item3 a {
+/* styles links */
+#footer .item3 a {
     color: #fff;
     text-decoration: none;
 }
+/* hover to links */
+#footer .item3 a:hover {
+    color: #000;
+}
+/* styles newsletter example header */
+#oldNewsLetter .top {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    background-color: #000;
+    color: #fff;
+    font-size: 60px;
+    padding-left: 20px;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+/* styles the newsletter example */
+#oldNewsLetter .gridCont {
 
-@media(max-width: 600px) {
-    #section-a {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        display: block;
-        border: solid 3px #000;
-        border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: fit-content;
+    border: #000 solid 3px;
+    background-color: #fff;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+/* positions the img */
+#oldNewsLetter img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 600px;
+}
+
+/*  */
+#oldNewsLetter .item1 h1 {
+    font-size: 40px;
+
+}
+
+#oldNewsLetter .item1 h2 {
+    font-size: 20px;
+
+}
+/* spans first column for 2 columns */
+#oldNewsLetter .item1 {
+    grid-column: 1/3;
+
+    width: fit-content;
+}
+
+#oldNewsLetter .item1 p {
+    width: 500px;
+}
+/* styles header boxes */
+#oldNewsLetter .container {
+    width: 300px;
+    background: #000;
+    color: #fff;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 10px;
+
+}
+
+#oldNewsLetter .item2 {
+    margin-top: 0;
+
+}
+
+#oldNewsLetter .item2 h1 {
+    margin: 0;
+}
+/* styles top of newsletter page with background image */
+#newsletterHeader {
+
+    background-image: url('/img/genericBkgrd.jpg');
+    background-repeat: no-repeat;
+
+    height: 800px;
+    background-size: cover;
+}
+/* centers form and button */
+#newsletterHeader .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: inherit;
+
+
+}
+
+/* sets dimensions and spacing around the form */
+#newsletterHeader input {
+    padding: 5px;
+    width: 80%;
+    height: 50px;
+    font-size: 17px;
+}
+
+
+#products {
+    text-align: center;
+
+}
+/* styles product header */
+#products h3 {
+    font-size: 60px;
+    text-decoration: underline;
+    color: #fff;
+    font-weight: 200;
+}
+/* styles product grid */
+#products .container {
+
+    display: grid;
+
+
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+
+}
+/* styles product box */
+#products .content-wrap {
+
+
+    margin: auto;
+    margin-bottom: 20px;
+    width: 80%;
+    height: 400px;
+    background-color: #fff;
+
+    border-radius: 30px;
+
+    text-align: center;
+    font-size: 10px;
+    padding: 20px;
+
+
+}
+
+
+/* adds animation to images and styles them */
+#products img {
+    width: 190px;
+    height: 170px;
+    padding: 20px;
+    padding-bottom: 0;
+    transition: 0.4s ease-in-out, width 0.4s ease-in-out;
+    transition: 0.4s ease-in-out, height 0.4s ease-in-out;
+
+}
+
+/* activates animation */
+#products img:hover {
+    width: 210px;
+    height: 190px;
+
+
+
+}
+
+
+
+#products h1 {
+    font-size: 26px;
+}
+
+/* styles the image dimensions and adds rounding to them */
+#people img {
+    max-height: 364px;
+
+    border-radius: 10px;
+}
+
+/* styles h1 title header*/
+#people h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 800px;
+    font-size: 60px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}
+/* styles names */
+#people h3 {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    max-width: 200px;
+
+
+}
+/* styles profiles into a grid */
+#people .container {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* style profiles */
+#people .content-wrap {
+
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+
+}
+
+
+#donate {
+    color: #fff;
+}
+/* styles bottom flex */
+#donate .flexCont {
+    font-family: 'Bookman Old Style';
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: #fff solid 3px;
+    margin: 20px;
+}
+/* styles donate button */
+#donate button {
+    display: block;
+    margin: auto;
+
+}
+/* styles charity images  */
+#donate img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
+    margin-bottom: auto;
+    padding: 10px;
+
+}
+
+#donate h1 {
+    width: 250px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+/* resizes second logo */
+#donate .item2 img {
+    width: 400px;
+}
+/* styles "supported charities" header */
+#donate .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: #000;
+    color: #fff;
+    font-size: 60px;
+    padding-left: 20px;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+/* styles what we do section */
+#donate .container {
+    display: flex;
+    flex-basis: 20%;
+    font-size: 20px;
+    border: #fff solid 3px;
+    margin: 20px;
+
+}
+
+#donate .container h1,
+p {
+    padding: 20px;
+    margin: auto;
+
+}
+/* adds border to the right vertically */
+#donate .container h1 {
+    font-size: 30px;
+    border-right: #fff solid 3px;
+}
+
+#donate p {
+    font-size: 19px;
+    width: 80%;
+}
+
+
+@media(max-width: 1200px) {
+
+    /* changes the direction of the flex */
+    #section-b .history {
+        flex-direction: column;
+    }
+    /* changes the border to the bottom */
+    #section-b .item1 {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-bottom: solid 3px #fff;
+
+    }
+
+    #section-b .item2 {
         padding: 5px;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
         line-height: 2em;
-        color: #fff;
-        background-image: url('../img/genericBakgrd\ 2.jpg');
-        background-size: cover;
-        
-    
+
+        text-align: center;
+
     }
-    #section-a h1{
+}
+
+@media(max-width: 1100px) {
+    button {
+        width: 30%;
+
+    }
     
-        /* top: 10px; */
-        display: block;
-        margin: 10px;
-        
-        padding: 10px;
-        /* margin-top: 30px; */
-        background-color: #000;
-       
-        
+    #newsletterHeader input {
+        padding: 0;
     }
 
-/* 
-    #section-a div{
-        display: block;
+    #title .container h1 {
+        font-size: 80%;
+    }
+    /* changes the flex direction and center text */
+    #donate .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    /* changes which side the border is on */
+    #donate .container h1 {
+        border-right: none;
+        border-bottom: #fff solid 3px;
+    }
+
+    #donate .flexCont {
+        flex-direction: column;
+    }
+
+    #donate .cont {
+        margin: 20px;
+    }
+    /* separates each item with a border */
+    #donate .item1 {
+        border-bottom: #fff solid 3px;
+    }
     
-    } */
+    /* separates each item with a border */
+    #donate .item2 {
+        border-bottom: #fff solid 3px;
+    }
+
+    #donate img {
+        width: 50%;
+    }
+
+    #donate .item2 img {
+        width: 70%;
+    }
+    /* stacks everything into one column */
+    #oldNewsLetter .gridCont {
+
+        grid-template-columns: 1fr;
+
+        align-items: center;
+
+        margin: auto;
+        padding-left: 40px;
+        padding-right: 40px;
+
+    }
+
+    #oldNewsLetter .item1 p {
+        width: auto;
+    }
+
+
+    #oldNewsLetter .item1 {
+
+        text-align: center;
+
+    }
+
+    #oldNewsLetter {
+        margin: 0;
+        padding: 0;
+
+
+    }
+
+    #oldNewsLetter .item1 p {
+        margin-bottom: 10px;
+    }
+    
+    /* centers newsletter header boxes */
+    #oldNewsLetter .container {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    #oldNewsLetter img {
+        margin-top: 10px;
+        width: 300px;
+    }
+    /* makes grid 2 by 3 */
+    #people .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 1000px) {
+    /* removes logo */
+    header img {
+        display: none;
+    }
+    /* makes nav bar go on a new line  */
+    header ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    #title .container {
+        font-size: 80%;
+
+    }
+    
+    /* stacks form and button */
+    #newsletterHeader .container {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #section-a {
+        width: fit-content;
+
+    }
+    /* stacks opening hours vertically */
     #section-a .contentWrap {
         display: block;
         text-align: center;
         align-items: center;
         margin: auto;
         margin-bottom: 10px;
-    
+
     }
+    /* changes formatting of the footer areas */
+    #footer .gridCont {
+        display: grid;
+        grid-template-areas:
+            'social'
+            'about'
+            'boring';
+    }
+    #footer .item2 {
+        border-left: none;
+        border-right: none;
+    }
+}
 
+@media(max-width: 850px) {
+    /* stacks the products */
+    #products .container {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    /* stacks the people */
+    #people .container {
+        grid-template-columns: 1fr;
+    }
+}
 
-
-    
+@media(max-width: 500px) {
+    /* limits the product widths */
+    #products .content-wrap {
+        padding: 20px;
+        max-width: 70%;
+        font-size: 8px;
+    }
 }
