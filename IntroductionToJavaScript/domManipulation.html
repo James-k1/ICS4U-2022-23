@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Simple DOM Example</title>
+   <style>
+      .highlight {
+         color: white;
+         background-color: black;
+         padding: 10px;
+         width: 250px;
+         text-align: center;
+      }
+
+      .more {
+         font-size: larger;
+      }
+   </style>
+</head>
+
+<body>
+   <section>
+      <img src="images/dinosaur.png"
+         alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+         <img src="images/dinosaur.png"
+         alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+      <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+   </section>
+
+   <!-- This way the page is loaded before the script runs -->
+   <script>
+      //const link = document.querySelectorAll('a')[0];
+      const link = document.querySelector('a')
+      link.textContent = 'Mozilla Developer Network';
+      link.href = 'https://developer.mozilla.org';
+
+      const sect = document.querySelector('section');
+      const para = document.createElement('p');
+      para.textContent = 'We hope you enjoyed this ride.';
+      sect.appendChild(para);
+
+      const text = document.createTextNode('-- the premier source for web development knowledge.');
+      const linkPara = document.querySelector('p');
+      linkPara.appendChild(text);
+
+      sect.appendChild(linkPara); // moves the paragraph - does not clone it
+
+      //sect.removeChild(linkPara);
+      linkPara.remove();
+      /*
+      adds inline style
+      para.style.color = 'white';
+      para.style.backgroundColor = 'black';
+      para.style.padding = '10px';
+      para.style.width = '250px';
+      para.style.textAlign = 'center';
+      */
+      para.setAttribute('class', 'more');
+      // para.setAttribute('class', 'highlight');
+      para.classList.add('highlight');
+
+      const img = document.querySelectorAll('img');
+      // const sect = document.querySelector('section');
+
+
+      img.forEach(val=>{
+         val.onclick = () =>{
+         const para = document.createElement('p');
+         para.textContent="jsdlfkjlskdjflksjdlkf";
+         sect.appendChild(para);
+         }
+      });
+
+   </script>
+</body>
+
+</html>
