@@ -5,98 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
     <link rel="stylesheet" href="wordle.css">
 </head>
 <body>
+
     <section id="main">
        <div class="rowOne">
-            <div class="0">
-                <h1>t</h1>
+            <div class="zero">
+                <h1></h1>
             </div>
-            <div class="1">
-                <h1>e</h1>
+            <div class="one">
+                <h1></h1>
             </div>
-            <div class="2">
-                <h1>s</h1>
+            <div class="two">
+                <h1></h1>
             </div>
-            <div class="3">
-                <h1>t</h1>
+            <div class="three">
+                <h1></h1>
             </div>
-            <div class="4">
-                <h1>s</h1>
+            <div class="four">
+                <h1></h1>
             </div>
        </div>
        <div class="rowTwo">
-            <div class="0">
-                <h1>t</h1>
+            <div class="zero">
+                <h1></h1>
             </div>
-            <div class="1">
-                <h1>e</h1>
+            <div class="one">
+                <h1></h1>
             </div>
-            <div class="2">
-                <h1>s</h1>
+            <div class="two">
+                <h1></h1>
             </div>
-            <div class="3">
-                <h1>t</h1>
+            <div class="three">
+                <h1></h1>
             </div>
-            <div class="4">
-                <h1>s</h1>
+            <div class="four">
+                <h1></h1>
             </div>
        </div>
        <div class="rowThree">
-            <div class="0">
-                <h1>t</h1>
+            <div class="zero">
+                <h1></h1>
             </div>
-            <div class="1">
-                <h1>e</h1>
+            <div class="one">
+                <h1></h1>
             </div>
-            <div class="2">
-                <h1>s</h1>
+            <div class="two">
+                <h1></h1>
             </div>
-            <div class="3">
-                <h1>t</h1>
+            <div class="three">
+                <h1></h1>
             </div>
-            <div class="4">
-                <h1>s</h1>
+            <div class="four">
+                <h1></h1>
             </div>
        </div>
        <div class="rowFour">
-            <div class="0">
-                <h1>t</h1>
+            <div class="zero">
+                <h1></h1>
             </div>
-            <div class="1">
-                <h1>e</h1>
+            <div class="one">
+                <h1></h1>
             </div>
-            <div class="2">
-                <h1>s</h1>
+            <div class="two">
+                <h1></h1>
             </div>
-            <div class="3">
-                <h1>t</h1>
+            <div class="three">
+                <h1></h1>
             </div>
-            <div class="4">
-                <h1>s</h1>
+            <div class="four">
+                <h1></h1>
             </div>
        </div>
        <div class="rowFive">
-            <div class="0">
-                <h1>t</h1>
+            <div class="zero">
+                <h1></h1>
             </div>
-            <div class="1">
-                <h1>e</h1>
+            <div class="one">
+                <h1></h1>
             </div>
-            <div class="2">
-                <h1>s</h1>
+            <div class="two">
+                <h1></h1>
             </div>
-            <div class="3">
-                <h1>t</h1>
+            <div class="three">
+                <h1></h1>
             </div>
-            <div class="4">
-                <h1>s</h1>
+            <div class="four">
+                <h1></h1>
             </div>
        </div>
+       <div class="rowSix">
+        <div class="zero">
+            <h1></h1>
+        </div>
+        <div class="one">
+            <h1></h1>
+        </div>
+        <div class="two">
+            <h1></h1>
+        </div>
+        <div class="three">
+            <h1></h1>
+        </div>
+        <div class="four">
+            <h1></h1>
+        </div>
+   </div>
     </section>
-
     <section id="keyboard">
         <div class="rowOne">
             <div class="container">
@@ -143,4 +160,71 @@
     </section>
     
 </body>
+<script>
+    let currentWord = "growl".toUpperCase();
+    let row = 0;
+    let column = 0;
+    let arr = [];
+    document.querySelectorAll("#main .rowOne, #main .rowTwo, #main .rowThree, #main .rowFour, #main .rowFive, #main .rowSix").forEach(element => {
+        let column = element.querySelectorAll("div");
+        arr.push(column)
+    });
+
+    document.querySelectorAll("#keyboard .container").forEach(element => {
+        let buttons = element.querySelectorAll("button");
+        let button = 0;
+        buttons.forEach(button => {
+            if (button.id=="back"){
+                
+                button.onclick = function() { 
+                    if (column>0){
+                        column--;
+                        if (column>=arr[0].length){
+                            column=arr[0].length-1;
+                        }
+                        console.log(column);
+                        arr[row][column].querySelector("h1").textContent = "";    
+                    }
+                }
+
+            }else if (button.id=="enter"){
+                
+                button.onclick = function() { 
+                    
+                    if (column==arr[0].length){
+                        for(i in arr[row]){
+                            let currentSquare = arr[row][i];
+                            if (currentSquare.textContent==currentWord.charAt(i)){
+                                currentSquare.
+
+                            }
+
+                        }
+
+                        row++;
+                        column=0;
+
+                    }
+                    if (row==arr.length){
+
+                        console.log("ok u need to add somthing here")
+                    }
+                }
+
+            }
+            else{
+                button.onclick = function() { 
+                    if (column<arr[0].length){
+
+                        console.log("wtf")
+                        arr[row][column].querySelector("h1").textContent = button.querySelector("h1").textContent; 
+                        column++;
+                    }
+                }
+            }   
+        })
+    });
+
+    
+</script>
 </html>
