@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body onload="createTable()">
+   <header>
+
+        <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #bc84fc;">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="img/WTALogo.png" style="max-height: 300px; width: 100px;">
+                </a>
+    
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="mainNav" onclick="toggleNav(this)">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+    
+            <div id="mainNav" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navContainer" >
+                        <a class="navbar-item" href="index.html" style="color: white; background-color: #7814ff;">Home</a>
+                    </div>
+                    <div class="navContainer" >
+                        <a class="navbar-item" href="admin.html">Admin</a>
+                    </div>
+                    <div class="navContainer" >
+                        <a class="navbar-item" href="filterDate.html">Find Games</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+    
+   </header>
+
+    <!-- <div class="container card"> -->
+    <div id="table" class="mainTable card" style="width: 80%; margin-left: auto; margin-right: auto; padding: 20px; margin-top:20px;">
+   <!-- </div> -->
+
+
+       <table id="datatable" class="table is-striped" style="width:100%;margin-left: auto; margin-right: auto; text-align-last: center;">
+          <thead>
+             <tr>
+                <th id="names"><a onclick="sort('name')">Name</a></th>
+                <th id="country"><a onclick="sort('country')">Country</a></th>
+                <th id="height"><a onclick="sort('height')">Height</a></th>
+                <th id="age"><a onclick="sort('age')">Age</a></th>
+                <th id="Points"><a onclick="sort('points')">Points</a></th>
+             </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+       </table>
+    </div>
+ 
+    
+ </body>
+<script src="js/god.js"></script>
+<script src="js/tableManipulation.js"></script>
+</html>

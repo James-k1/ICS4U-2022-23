@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    
+</head>
+<body onload="initPage()">
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #bc84fc;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="img/WTALogo.png" style="max-height: 300px; width: 100px;">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="mainNav" onclick="toggleNav(this)">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="mainNav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navContainer" >
+                    <a class="navbar-item" href="index.html">Home</a>
+                </div>
+                <div class="navContainer" >
+                    <a class="navbar-item" href="admin.html" style="color: white; background-color: #7814ff;">Admin</a>
+                </div>
+                <div class="navContainer" >
+                    <a class="navbar-item" href="filterDate.html">Find Games</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="section">
+        <div id="inputContainer" class="columns" style="
+        text-align: -webkit-center;">
+
+            <div class="column">
+
+                    <div class="box" style="min-height: 100%; display: flex; flex-direction: column;">
+                        <header>
+                        <h1 class="title">Add Player</h1>
+                    </header>
+                    <section class="pInputs" style="margin-top: auto;">
+                        <span class="container maybe" style="display: inline-block">
+                            <input class="input" type="text" placeholder="Player Name" id="player" onkeyup="checkName(this.value)"> 
+                            <p class="help is-danger ml-6" id="pExists" style="display: none;">Player Already Exists!</p>  
+                        </span>
+                        <input class="input maybe" type="number" placeholder="Current Point Count" id="rank"> 
+                        <input class="input maybe" type="text" placeholder="Country" id="country"> 
+                        <input class="input maybe" type="text" placeholder="Height (eg. 5'10&quot)" id="height"> 
+                        <span class="container maybe" style="display: inline-block">
+                            <input class="input" type="number" placeholder="Age" id="age" oninput="checkAge(this.value)"> 
+                            <p class="help is-danger ml-6" id="aNeg" style="display: none;">Age Cannot Be Negative!</p>  
+                        </span>
+                        <!-- <br> -->
+
+
+
+
+
+                    </section>
+                    <footer style="margin-top: auto; margin-left: auto;">
+                        <button class="button is-success has-text-white"  onclick="addPressed()" style="display: flex; margin-left:auto;">Add</button>
+                        <p class="help is-danger" id="submitErr" style="display: none;">There Are Unresolved Issues!</p>  
+                    </div>
+                    </footer>
+
+            </div>
+
+            <div class="column">
+                    <div class="box" style="display: flex; flex-direction:column;">
+                        
+                            
+                            <!-- <div class="button" onclick="removeMatchFromPlayer()">-</div> -->
+                            <header>
+                                <h1 class="title">Matches</h1>
+                            </header>
+                            
+                            <!-- <div class="button" onclick="addMatchToPlayer()">+</div> -->
+
+
+                            <section style="margin-top: 30px; width:fit-content; margin-left: auto; margin-right: auto;">
+                                <div class="box match">
+                                    <!-- <div class="select">
+                                        <select>
+                                        <option>Tournament</option>
+                                        <option>With options</option>
+                                        </select>
+                                    </div>
+                                    <div class="select">
+                                        <select>
+                                        <option>Depth</option>
+                                        <option>With options</option>
+                                        </select>
+                                    </div> -->
+                                    <span class="tournamentSelector">
+                                        <div class="dropdown">
+                                            <div class="dropdown-trigger">
+                                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" onclick="toggleActivation(this)">
+                                                    <span class="display">Tournament</span>
+                                                    <span class="icon is-small">
+                                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div role="menu" class="dropdown-menu">
+                                                <div class="dropdown-content">
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                
+                                    <span class="placementSelector">
+                                        <div class="dropdown">
+                                            <div class="dropdown-trigger">
+                                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" onclick="toggleActivation(this)" disabled="">
+                                                    <span class="display">Placement</span>
+                                                    <span class="icon is-small">
+                                                        <i class="fa fa-chevron-down" aria-hidden="true">
+
+                                                        </i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div role="menu" class="dropdown-menu">
+                                                <div class="dropdown-content">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+
+
+
+
+                                    <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Players</th>
+                                                    <th>Set One</th>
+                                                    <th>Set Two</th>
+                                                    <th>Set Three</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+
+                                                        <div class="dropdown" id="p1">
+
+                                                            <div class="dropdown-trigger">
+                                                                <input class="input" type="text" placeholder="Player One" onkeyup="searchPlayer(this.closest('.dropdown').querySelector('.dropdown-content'),this.value)"> 
+                                                            </div>
+                    
+                                                            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                                                                <div class="dropdown-content">
+                                                                
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                        <p class="help is-danger" style="display: none;"></p>  
+
+                                                    </th>
+                                                    <td><input class="input" id="p1s1" type="number" min="0" placeholder="-" oninput="validateSet()"></td>
+                                                    <td><input class="input" id="p1s2" type="number" min="0" placeholder="-" oninput="validateSet()"></td>
+                                                    <td><input class="input" id="p1s3" type="number" min="0" placeholder="-" oninput="validateSet()"></td>
+                                                    
+                    
+                                                </tr>
+                                                <tr>
+                                                    <th>
+
+                                                        <div class="dropdown" id="p2">
+
+                                                            <div class="dropdown-trigger">
+                                                                <input class="input" type="text" placeholder="Player Two" onkeyup="searchPlayer(this.closest('.dropdown').querySelector('.dropdown-content'),this.value)" > 
+                                                            </div>
+                    
+                                                            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                                                                <div class="dropdown-content">
+                                                                
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                        <p class="help is-danger" style="display: none;"></p>  
+
+                                                    </th>
+
+                                                    <td>
+                                                        <input class="input" id="p2s1" type="number"  min="0" placeholder="-" oninput="validateSet()" >
+                                                        <p class="help is-danger" id="s1Err" style="display: none;">There Are Unresolved Issues!</p>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <input class="input" id="p2s2" type="number"  min="0" placeholder="-" oninput="validateSet()">
+                                                        <p class="help is-danger" id="s2Err" style="display: none;">There Are Unresolved Issues!</p>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <input class="input" id="p2s3" type="number"  min="0" placeholder="-" oninput="validateSet()">
+                                                        <p class="help is-danger" id="s3Err" style="display: none;">There Are Unresolved Issues!</p>
+                                                    </td>
+                                                    
+                                                    
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><input id = "date" type="date" onload="new Date().toISOString().slice(0, 10)" style="padding: 5px;"></td>
+                                                </tr>
+                                            </tbody>
+                                            
+                                    </table>
+                                </div> 
+                            </section>
+
+
+                            <!-- <br> -->
+                            <footer style="margin-top: 30px; margin-left: auto;">
+                                <button class="button is-success has-text-white" onclick="queueMatch(this.closest('.box').querySelector('.match'))" style="display: flex; margin-left:auto;">Queue</button>
+                                <p class="help is-danger" id="queueErr" style="display: none;"></p> 
+                            </footer> 
+                            
+                            
+                        
+                    </div>
+            </div>
+        </div>
+                <div class="matchBox box">
+                    <header style="margin-bottom: 30px;">
+                        <h1 class="title" style="text-align: center;">Match Queue:</h1>
+                        
+                    </header>
+
+                    <span class="columns is-multiline" style="overflow: scroll;"> 
+                        <!-- margin-left: auto; margin-right: auto;  -->
+
+                    </span>
+
+                    <footer>
+                        <button class="button is-success"  style="display: flex; margin-left:auto" onclick="readyMatches(this.closest('.matchBox'))">Add All Matches</button>
+                    </footer>
+
+                    
+                </div>
+
+            
+        </div>
+
+    </section>
+    
+
+</body>
+<script src="js/god.js"></script>
+<script src="js/tableManipulationAdmin.js"></script>
+</html>

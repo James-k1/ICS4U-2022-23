@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body onload="initPlayerMatch()">
+
+
+    
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #bc84fc;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="img/WTALogo.png" style="max-height: 300px; width: 100px;">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="mainNav" onclick="toggleNav(this)">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="mainNav" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navContainer" >
+                    <a class="navbar-item" href="index.html">Home</a>
+                </div>
+                <div class="navContainer" >
+                    <a class="navbar-item" href="admin.html">Admin</a>
+                </div>
+                <div class="navContainer" >
+                    <a class="navbar-item" href="filterDate.html">Find Games</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+ 
+    <div class="container" style="text-align: center; ">
+        <h1 class="title" style="margin-top: 20px; margin-bottom:20px;">Games</h1>
+    </div>
+    
+
+
+    <div class="mainContainer columns is-multiline" style="margin-left: auto; margin-right: auto; overflow: scroll;">
+
+    </div>
+
+    <div class="container">
+        <nav class="pagination" role="navigation" aria-label="pagination" style="width: fit-content; margin-left: auto; margin-right: auto; " >
+            
+            
+            <ul class="pagination-list">
+                <li>
+                    <a class="pagination-previous is-disabled" id="first" onclick="this.classList.contains('is-disabled') ? 0:switchPage(document.querySelectorAll('.pagination-list li')[parseInt(document.querySelector('.is-current').textContent)-1].querySelector('a'))">Previous</a>
+                </li>
+
+            <li id="last">
+                <a class="pagination-next" id="lastButton" onclick="this.classList.contains('is-disabled') ? 0:switchPage(document.querySelectorAll('.pagination-list li')[parseInt(document.querySelector('.is-current').textContent)+1].querySelector('a'))">Next page</a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  
+</body>
+<script src="js/god.js"></script>
+<script src="js/playerMatches.js"></script>
+</html>

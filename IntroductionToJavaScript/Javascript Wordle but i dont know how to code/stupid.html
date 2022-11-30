@@ -194,11 +194,24 @@
                     if (column==arr[0].length){
                         for(i in arr[row]){
                             let currentSquare = arr[row][i];
-                            if (currentSquare.textContent==currentWord.charAt(i)){
-                                currentSquare.
+                            if (currentSquare.textContent.trim()==currentWord.charAt(i)){
+                                currentSquare.style.backgroundColor = "#538d4e";
+                                // currentSquare.style.border = "#538d4e";
+                                
+                                    
+                                
+
+                            } else if (currentWord.includes(currentSquare.textContent.trim())){
+                                currentSquare.style.backgroundColor = "#b59f3b";
+                                // currentSquare.style.border = "#b59f3b";
+                                // currentSquare.style.border = "none";
+
+                            }else {
+                                currentSquare.style.backgroundColor = "#3a3a3c";
 
                             }
-
+                            
+                            
                         }
 
                         row++;

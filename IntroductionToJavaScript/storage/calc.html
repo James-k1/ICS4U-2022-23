@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .key {
+         border: 1px solid black;
+         background-color: gray;
+         padding: 10px;
+         text-align: center;
+      }
+
+      .grid-container {
+         display: grid;
+         grid-template-columns: 50px 50px 50px 50px;
+      }
+
+      .wide-button-1 {
+         grid-column: 1 / span 2;
+      }
+
+      .wide-button-2 {
+         grid-column: 3 / span 2;
+      }
+
+      .result {
+         grid-column: 1 / span 4;
+         text-align: right !important;
+         padding-right: 10px;
+         height: 20px;
+      }
+   </style>
+</head>
+
+<body>
+   
+   <div id="calculator" class="grid-container">
+
+   </div>
+</body>
+<script>
+    let resultIsOn = false;
+   const keypadNumbers = [
+      [7, 8, 9, '/'],
+      [4, 5, 6, '*'],
+      [1, 2, 3, '+'],
+      [0, '.', '-'],
+      ['CLS', '=']
+   ];
+
+
+   function operatorIndex(exp) {
+      if (exp.indexOf('+') >= 0)
+         return exp.indexOf('+');
+      else if (exp.indexOf('-') >= 0)
+         return exp.indexOf('-');
+      else if (exp.indexOf('/') >= 0)
+         return exp.indexOf('/');
+      else if (exp.indexOf('*') >= 0)
+         return exp.indexOf('*');
+      else
+         return -1;
+
+   }
+
+   const gridCont = document.querySelectorAll(".grid-container");
+
+
+
+
+
+   keypadNumbers.forEach(element => {
+
+    for (i in element){
+
+        let temp = '';    
+        temp = document.createElement('div')
+        cl = temp.classList;
+        cl.add('key')
+        if (element[i]=="0" || element[i]=="CLS"){
+            console.log("")
+            cl.add('wide-button-1');
+        }
+        if (element[i]=="="){
+            cl.add('wide-button-2');
+        }
+        
+        temp.textContent = element[i]+"";
+        gridCont[0].appendChild(temp);
+        
+        if (temp.textContent == "CLS") {
+        temp.onclick = function() { 
+            
+            result.textContent = '';
+        }
+    
+        } 
+        else if (temp.textContent == "="){
+                temp.onclick = function() { 
+                    let idek = result.textContent;
+                   
+                    let index = operatorIndex(idek);
+                    let val = 0;
+                    
+                    numOne = idek.substring(0,index);
+                    numTwo = idek.substring(index+1);
+      
+                    if (idek.charAt(operatorIndex(idek))=='+'){
+                        val = Number(numOne)+Number(numTwo)
+
+                        
+                        if (isNaN(val)){
+                            val="ERROR";
+                        }
+                        result.textContent = val+'';
+
+                    }
+                    else if (idek.charAt(operatorIndex(idek))=="-"){
+                        val = Number(numOne)-Number(numTwo);
+                        if (isNaN(val)){
+                            val="ERROR"
+                        }
+                        result.textContent = val+'';
+                        
+
+                    }
+                    if (idek.charAt(operatorIndex(idek))=="*"){
+                        val = Number(numOne)*Number(numTwo)
+                        if (isNaN(val)){
+                            val="ERROR"
+                        }
+                        result.textContent = val+'';
+
+                    }
+                    if (idek.charAt(operatorIndex(idek))=="/"){
+                        val = Number(numOne)/Number(numTwo)
+                        if (isNaN(val)){
+                            val="ERROR"
+                        }
+                        result.textContent = val+'';
+
+                    }
+                    resultIsOn=true;
+
+            }
+            
+            
+        }
+        
+        else{ 
+            temp.onclick = function() { 
+                if (resultIsOn){
+                    result.textContent='';
+                }
+                text = document.createTextNode(temp.textContent);
+                result.appendChild(text);
+                resultIsOn=false;
+            }
+
+        
+    }
+      
+    }
+
+
+    
+   }
+
+);
+   
+    result = '';    
+    result = document.createElement('div')
+    cl = result.classList;
+    cl.add('key');
+    cl.add('result');
+    result.textContent = "";
+    gridCont[0].appendChild(result);
+   
+
+
+
+
+
+   /*
+     Number("76") => 76
+     Number("76+") => NaN
+     isNaN(76) => false
+     isNaN(NaN) => true
+   */
+</script>
+
+</html>
