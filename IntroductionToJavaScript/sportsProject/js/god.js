@@ -1096,9 +1096,10 @@ function addPlayer(pName,pCurrPoints,pCountry,pHeight,pAge){
 
         
     }
+    let list = getMasterList()
     nextId++;
-    masterList.push(player);
-    localStorage.setItem("players",JSON.stringify(masterList));
+    list.push(player);
+    localStorage.setItem("players",JSON.stringify(list));
 
 
 }
