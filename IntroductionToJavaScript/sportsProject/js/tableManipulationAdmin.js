@@ -462,6 +462,12 @@ function queueMatch(match){
 
     document.querySelector('.matchBox .columns').appendChild(container);
 
+    let inputs = document.querySelectorAll("#inputContainer .match .input");
+    inputs.forEach(elem => elem.value="");
+ 
+       
+    
+
 }
 
 //iterates through the queued matches in the matchBox variable, extracts the information, and calls the function addMatch to add the matches to localStorage
