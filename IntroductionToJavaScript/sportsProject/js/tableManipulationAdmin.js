@@ -318,7 +318,24 @@ function validateSet(){
     playerTwoSetOne.value=playerTwoSetOne.value.replace('-','')
     playerTwoSetTwo.value=playerTwoSetTwo.value.replace('-','')
     playerTwoSetThree.value=playerTwoSetThree.value.replace('-','')
+    if (parseInt(playerOneSetOne.value)>99 ||parseInt(playerTwoSetOne.value)>99){
+        setOneError.style.display="block";
+        setOneError.textContent="Invalid Set";
+        return
 
+    }else if ( parseInt(playerOneSetTwo.value)>99 ||parseInt(playerTwoSetTwo.value)>99){
+        setTwoError.style.display="block";
+        setTwoError.textContent="Invalid Set";
+        return
+
+    }else if(parseInt(playerTwoSetThree.value)>99||parseInt(playerOneSetThree.value)>99){
+        setThreeError.style.display="block";
+        setThreeError.textContent="Invalid Set";
+        return
+
+    }
+
+        
 
 
     if (playerOneSetOne.value!="" && playerTwoSetOne.value!="" ){
@@ -461,12 +478,6 @@ function queueMatch(match){
     
 
     document.querySelector('.matchBox .columns').appendChild(container);
-
-    let inputs = document.querySelectorAll("#inputContainer .match .input");
-    inputs.forEach(elem => elem.value="");
- 
-       
-    
 
 }
 
