@@ -7,21 +7,24 @@ public class Body {
     private ArrayList<Vector> acceleration;
     private double mass;
     private double radius;
+    private double terminalVelocity;
 
-    public Body (double[] pos, Vector velocity, ArrayList<Vector> acceleration, double mass, double radius){
+    public Body (double[] pos, Vector velocity, ArrayList<Vector> acceleration, double mass, double radius, double terminalVelocity){
         this.pos=pos;
         this.velocity=velocity;
         this.acceleration=acceleration;
         this.mass=mass;
         this.radius=radius;
+        this.terminalVelocity=terminalVelocity;
     }
 
-    public Body (double[] pos, Vector velocity, double mass, double radius){
+    public Body (double[] pos, Vector velocity, double mass, double radius,double terminalVelocity){
         this.pos=pos;
         this.velocity=velocity;
         this.acceleration=new ArrayList<Vector>(Arrays.asList(new Vector[] {new Vector(0, 0)}));
         this.mass=mass;
         this.radius=radius;
+        this.terminalVelocity=terminalVelocity;
     }
 
     public void update(){
@@ -31,8 +34,8 @@ public class Body {
         }
         velocity.add(netAcceleration);
 
-        pos[0]+=velocity.getMag()*Math.cos(velocity.getDir());
-        pos[1]+=velocity.getMag()*Math.sin(velocity.getDir());
+        pos[0]+=Math.min(velocity.getMag(),terminalVelocity)*Math.cos(velocity.getDir());
+        pos[1]+=Math.min(velocity.getMag(),terminalVelocity)*Math.sin(velocity.getDir());
 
     }
 

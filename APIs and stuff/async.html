@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    async function fetchUsers() {
+        const res = await fetch('http://jsonplaceholder.typicode.com/users/3');
+        console.log(res);
+        const data = await res.json();
+        console.log(data);
+    }
+    async function fetchUsers() {
+        fetch('http://jsonplaceholder.typicode.com/users/3').then(res=>{return res.json().then(body=>console.log(body))});
+    }
+    fetchUsers()
+    //lol im not a develpoer i cant write code 
+</script>
+</html>

@@ -39,6 +39,7 @@ public class IntLinkedList {
         IntNode currNode = head;
         if (index==0){
             addFront(data);
+            return true;
         }
 
         for (int i = 0; i < index-1; i++) {
@@ -98,6 +99,35 @@ public class IntLinkedList {
         result+="}";
         return result;
     }
+    public Integer removeFront(){
+        if (head==null){
+            return null;
+        }else{
+            Integer temp = head.getData();
+            head=head.getLink();
+            manyItems--;
+            return temp;
+        }
+        
+
+    }
+    public IntNode getHead(){
+        return head;
+    }
+    public Integer get(int index){
+        if (head==null){
+            throw new IllegalStateException("Can't get element from and empty list.");
+        }
+        else if (index > manyItems || index < 0){
+            throw new IndexOutOfBoundsException("Invalid index "+ index + " max index is " + (manyItems-1));
+        }
+        IntNode curr=head;
+        for (int i = 0; i < index; i++) {
+            curr=curr.getLink();
+        }
+        return curr.getData();
+    }
+    
 
     
 }
