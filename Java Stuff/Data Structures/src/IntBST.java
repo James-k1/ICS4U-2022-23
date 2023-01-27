@@ -105,6 +105,46 @@ public class IntBST {
         }
         return root;
     }
+    private IntBSTNode findLargest(IntBSTNode root){
+        while (root.hasRightChild()){
+            root=root.getRightLink();
+        }
+        return root;
+    }
+    private IntBSTNode findLargestRecursive(IntBSTNode root){
+        if (root.hasRightChild() && root.getRightLink().hasRightChild()){
+            return findLargest(root.getRightLink());
+        }else if (root.hasRightChild()){
+            return root.getRightLink();
+        }
+        return root;
+    }
+    public boolean remove(Integer val){
+
+        IntBSTNode parent = findParent(val, root);
+        
+
+
+
+    }
+    private IntBSTNode findParent(Integer val, IntBSTNode root){
+
+        if (root.hasLeftChild() && root.getLeftLink().getVal()==val){
+            return root;
+        }
+        if (root.hasRightChild() && root.getRightLink().getVal()==val){
+            return root;
+        }
+        if (root.getVal()>val&&root.hasLeftChild()){
+            return findParent(val, root.getLeftLink());
+
+        }
+        if (root.getVal()<val&&root.hasRightChild()){
+            return findParent(val, root.getRightLink());
+        }
+
+        return null;
+    }
 
     
 }
