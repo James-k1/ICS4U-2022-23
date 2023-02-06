@@ -10,8 +10,12 @@ public class IntBST {
         }
         return addRecursive(root,val);
     }
+   
     public IntBSTNode find(Integer val){
         return findRecursive(root, val);
+    }
+    public boolean isEmpty(){
+        return root==null;
     }
 
     public IntBSTNode findRecursive(IntBSTNode root, Integer val) {
@@ -38,12 +42,15 @@ public class IntBST {
     public void postOrderPrintTraversal(){
         postOrderPrintTraversal(root);
     }
-    public void inOrderPrintTraversal(){
-        inOrderPrintTraversal(root);
+    public String inOrderPrintTraversal(){
+        String str = "";
+        return inOrderPrintTraversal(root, str);
+
     }
 
     public void preOrderPrintTraversal(IntBSTNode root){
         System.out.println(root.getVal());
+
         if(root.hasLeftChild()){
             preOrderPrintTraversal(root.getLeftLink());
         }
@@ -65,16 +72,17 @@ public class IntBST {
         System.out.println(root.getVal());
         
     }
-    public void inOrderPrintTraversal(IntBSTNode root){
+    public String inOrderPrintTraversal(IntBSTNode root, String str){
         
         if(root.hasLeftChild()){
-            inOrderPrintTraversal(root.getLeftLink());
+            inOrderPrintTraversal(root.getLeftLink(),str);
         }
-        System.out.println(root.getVal());
+        str += root.getVal();
         if (root.hasRightChild()){
-            inOrderPrintTraversal(root.getRightLink());
+            inOrderPrintTraversal(root.getRightLink(),str);
 
         }
+        return str;
         
     }
     /**
@@ -105,29 +113,130 @@ public class IntBST {
         }
         return root;
     }
-    private IntBSTNode findLargest(IntBSTNode root){
-        while (root.hasRightChild()){
-            root=root.getRightLink();
+   
+    // public IntBSTNode findLargest(IntBSTNode root){
+    //     while (root.hasRightChild()){
+    //         root=root.getRightLink();
+    //     }
+    //     return root;
+    // }
+    public IntBSTNode findLargest(IntBSTNode root){
+        if (root.getRightLink()==null){
+            return root;
         }
-        return root;
+        return findLargest(root.getRightLink());
     }
-    private IntBSTNode findLargestRecursive(IntBSTNode root){
-        if (root.hasRightChild() && root.getRightLink().hasRightChild()){
-            return findLargest(root.getRightLink());
-        }else if (root.hasRightChild()){
-            return root.getRightLink();
+
+    private IntBSTNode findSmallest(IntBSTNode root) {
+        if (root.getLeftLink()==null){
+            return root;
         }
-        return root;
+        return findSmallest(root.getLeftLink());
+
     }
+
+    // private IntBSTNode findLargestRecursive(IntBSTNode root){
+    //     if (root.hasRightChild() && root.getRightLink().hasRightChild()){
+    //         return findLargest(root.getRightLink());
+    //     }else if (root.hasRightChild()){
+    //         return root.getRightLink();
+    //     }
+    //     return root;
+    // }
     public boolean remove(Integer val){
+        if (val==root.getVal()){
+            if (!root.hasLeftChild()&&!root.hasLeftChild()){
+                root=null;
+                return true;
+
+            }
+            if (!root.hasLeftChild()&&root.hasRightChild()){
+                root=root.getRightLink();
+                return true;
+            }
+            if(root.hasLeftChild()&&!root.hasRightChild()){
+                root=root.getLeftLink();
+                return true;
+            }
+            if (root.hasLeftChild()&&root.hasRightChild()){
+
+                IntBSTNode leftLink = root.getLeftLink();
+                findSmallest(root.getRightLink()).setLeftLink(leftLink);
+                root=root.getRightLink();
+                
+            }
+        }
 
         IntBSTNode parent = findParent(val, root);
-        
+        if (parent==null){
+            return false;
+        }
 
+        // if (parent.getLeftLink().getVal()!=val||parent.getRightLink().getVal()!=val){
+        //     System.out.println("you fucked up findParent");
+        // }
+
+        if (parent.hasLeftChild() && parent.getLeftLink().getVal()==val){
+            IntBSTNode child = parent.getLeftLink();
+            if (!child.hasLeftChild()&&!child.hasRightChild()){
+                parent.setLeftLink(null);
+                return true;
+            }
+            if (!child.hasLeftChild()&&child.hasRightChild()){
+                parent.setLeftLink(child.getRightLink());
+                return true;
+            }
+            if (child.hasLeftChild()&&!child.hasRightChild()){
+                parent.setLeftLink(child.getLeftLink());
+                return true;
+            }
+            if (child.hasLeftChild()&&child.hasRightChild()){
+                IntBSTNode rightLink = child.getRightLink();
+                parent.setLeftLink(child.getLeftLink());
+                findLargest(parent.getLeftLink()).setRightLink(rightLink);
+                // child.getLeftLink().setRightLink(child.getRightLink());
+            }
+            System.out.println("cry");
+
+        }
+        if (parent.hasRightChild() && parent.getRightLink().getVal()==val){
+            IntBSTNode child = parent.getRightLink();
+            if (!child.hasLeftChild()&&!child.hasRightChild()){
+                parent.setRightLink(null);
+                return true;
+            }
+            if (!child.hasLeftChild()&&child.hasRightChild()){
+                parent.setRightLink(child.getRightLink());
+                return true;
+            }
+            if (child.hasLeftChild()&&!child.hasRightChild()){
+                parent.setRightLink(child.getLeftLink());
+                return true;
+            }
+            if (child.hasLeftChild()&&child.hasRightChild()){
+                IntBSTNode leftLink = child.getLeftLink();
+                parent.setRightLink(child.getRightLink());
+                findSmallest(parent.getRightLink()).setLeftLink(leftLink);
+                return true;
+                
+                
+            }
+            System.out.println("cry");
+
+
+        }
+        
+        //should never get here
+        return false;
 
 
     }
-    private IntBSTNode findParent(Integer val, IntBSTNode root){
+
+
+    public IntBSTNode findParent(Integer val, IntBSTNode root){
+        if (val==root.getVal()){
+            return null;
+        }
 
         if (root.hasLeftChild() && root.getLeftLink().getVal()==val){
             return root;
@@ -144,6 +253,9 @@ public class IntBST {
         }
 
         return null;
+    }
+    public IntBSTNode getRoot(){
+        return root;
     }
 
     

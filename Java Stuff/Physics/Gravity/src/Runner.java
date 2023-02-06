@@ -34,16 +34,37 @@ public class Runner extends PApplet {
 		// 	objects.add(new Body(new double[] {-screenWidth/2 + screenWidth*random(),-screenHeight/2 + screenHeight*random()},new Vector(3*random(), 2*Math.PI*random()),mass,mass,500));
 		// }
 		
-		int amount = 2; //17 7
-		double angleInc = (Math.PI * 2) / amount;
-		double angle = 0;
-		double radius = 550;
-		for (int i = 0; i < amount; i++) {
-			objects.add(new Body(new double[] {radius  * Math.cos(angle), radius  * Math.sin(angle)}, new Vector(1 , angle - Math.PI/2), 40,10,500));
-			
-			angle += angleInc;
+        int amount = 7; //17 7
+        double angleInc = (Math.PI * 2) / amount;
+        double angle = 0;
+        double radius = 550;
+        for (int i = 0; i < amount; i++) {
+            objects.add(new Body(new double[] {radius  * Math.cos(angle), radius  * Math.sin(angle)}, new Vector(1 , angle - Math.PI/2), 10,10,500));
+            
+            angle += angleInc;
+        }
 
-		}
+
+        amount = 7; //17
+        angleInc = (Math.PI * 2) / amount;
+        angle = 0;
+        radius=350; //200 350
+        for (int i = 0; i < amount; i++) {
+            objects.add(new Body(new double[] {radius  * Math.cos(angle), radius  * Math.sin(angle)}, new Vector(0.7 , angle +  Math.PI/2), 10,10,500)); //-
+            
+            angle += angleInc;
+        }
+		
+		// int amount = 12; //17 7
+		// double angleInc = (Math.PI * 2) / amount;
+		// double angle = 0;
+		// double radius = 550;
+		// for (int i = 0; i < amount; i++) {
+		// 	objects.add(new Body(new double[] {radius  * Math.cos(angle), radius  * Math.sin(angle)}, new Vector(1 , angle - Math.PI/2), 40,10,500));
+			
+		// 	angle += angleInc;
+
+		// }
 
 
 
@@ -107,7 +128,7 @@ public class Runner extends PApplet {
 		scale((float)zoom);
 		
 
-		background(0);	
+		// background(0);	
 		drawObjects(objects);
 		applyGravity(objects);
 		for (Body object : objects) {
