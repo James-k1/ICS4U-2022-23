@@ -1,16 +1,20 @@
 <script setup>
-// defineProps({
-//   msg: {
-//     type: String,
-//     required: true
-//   }
-// })
+defineProps({
+  event: {
+    type: Object,
+    required: true,
+  },
+})
 
 </script>
 
 <template>
 
- <div class="greetings"></div>
+  <div class="event-card">
+    <h2>{{ event.title }}</h2>
+    <span>@{{ event.time }} on {{ event.date }}</span>
+  </div>
+
 
 </template>
 
