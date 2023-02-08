@@ -128,7 +128,7 @@ public class Runner extends PApplet {
 		scale((float)zoom);
 		
 
-		// background(0);	
+		background(0);	
 		drawObjects(objects);
 		applyGravity(objects);
 		for (Body object : objects) {
