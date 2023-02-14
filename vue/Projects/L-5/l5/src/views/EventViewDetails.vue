@@ -1,26 +1,24 @@
+
+
 <script setup>
 import { ref, onMounted } from 'vue'
-import EventService from '@/services/EventService.js'
-
+import EventServices from '../services/EventServices';
+ 
 const props = defineProps({
-  id: {
-    required: true,
-  },
+    id: {requiered : true}
 })
-
 const event = ref(null)
-
+ 
 onMounted(() => {
-  EventService.getEvent(props.id)
-    .then((response) => {
-      event.value = response.data
+    EventServices.getEvent(props.id).then((responce) => {
+        event.value=responce.data
+    }).catch((error) => {
+        console.log(error)
     })
-    .catch((error) => {
-      console.log(error)
-    })
+  // fetch event (by id) and set local event data
 })
 </script>
-
+ 
 <template>
   <div v-if="event">
     <h1>{{ event.title }}</h1>
